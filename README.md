@@ -31,8 +31,18 @@
 
 
 
-####https://movie-app-project1.web.app/
-
 ![github](https://user-images.githubusercontent.com/75755882/116940379-8e647a00-ac76-11eb-9acc-8a9061eb3fe1.png)
+
+
+## Author
+
+👤 **Lewis O**
+
+* Website: https://movie-app-project1.web.app/
+* Github: [@Lewis-odero-okongo](https://github.com/lewis-0dero-okongo/movie-app)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
 
 

@@ -83,8 +83,8 @@ font-weight: 700;
 }
 
 .app__title {
-	height: 6rem;
-	width: 15.625rem;
+	height: 3rem;
+	width: auto;
 	margin: 0;
 
 }

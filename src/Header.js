@@ -4,7 +4,7 @@ import ChevronLeftRoundedIcon from "@material-ui/icons/ChevronLeftRounded";
 import "./Header.css";
 import axios from './axios';
 import requests, { imageBase, fetchMovie, fetchTV, fetchSearchString, setLoading } from './api';
-import NFLogo from './assets/logo.png';
+import NFLogo from './assets/logo1.png';
 import UserIcon from './assets/nfuser.jpg';
 import {auth} from './firebase';
 import {useHistory, useLocation, NavLink} from 'react-router-dom';

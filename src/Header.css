@@ -88,9 +88,6 @@ font-weight: 700;
 	margin: 0;
 
 }
-.app__title img{
-background-color: white;
-}
 
 .app__header form button {
 	display: none;

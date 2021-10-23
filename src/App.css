@@ -4,6 +4,20 @@
 	max-width: 1440px;
 	margin: 0 auto;
 }
+.app__header {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: #2c3e50;
+    z-index: 20;
+    position: relative;
+}
+
+
 
 .app__overlay {
 	position: absolute;

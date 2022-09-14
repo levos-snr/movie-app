@@ -39,7 +39,7 @@
 👤 **Lewis O**
 
 * Website: https://movie-app-project1.web.app/
-* Github: [@Lewis-odero-okongo](https://github.com/lewis-0dero-okongo/movie-app)
+* Github: [@Levos-snr](https://github.com/levos-snr/movie-app)
 
 ## Show your support
 

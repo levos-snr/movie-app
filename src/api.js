@@ -1,4 +1,4 @@
-const API_KEY = "5d3140c63f525198208a35c56481827c";
+const API_KEY = process.env.API_KEY;
 
 const imageBase = "https://image.tmdb.org/t/p/w500";
 const imageLargeBase = "https://image.tmdb.org/t/p/w1280";

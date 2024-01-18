@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import StarRoundedIcon from "@material-ui/icons/StarRounded";
-import PlayArrowRoundedIcon from "@material-ui/icons/PlayArrowRounded";
-import Grow from '@material-ui/core/Grow';
-import Rating from "@material-ui/lab/Rating";
-import Button from "@material-ui/core/Button";
+import StarRoundedIcon from '@mui/icons-material/StarRounded';
+import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
+import Grow from '@mui/material/Grow';
+import Rating from '@mui/material/Rating';
+import Button from "@mui/material/Button";
 import TextTruncate from "react-text-truncate";
 import ModalVideo from "react-modal-video";
 import numeral from "numeral";

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Button from '@material-ui/core/Button';
-import StarRoundedIcon from "@material-ui/icons/StarRounded";
-import Rating from "@material-ui/lab/Rating";
+import StarRoundedIcon from '@mui/icons-material/StarRounded';
+import Rating from '@mui/material/Rating';
 import TextTruncate from "react-text-truncate";
 import defaultImage from "./assets/default.jpg";
 import numeral from "numeral";
 import "./BigList.css";
 import axios from './axios';
-import requests, { imageBase } from './api';
+import { imageBase } from './api';
 
 function BigList({ fetchId, title, setMovieId, setLoading, type, notGradient }) {
   const [thisMovies, setThisMovies] = useState([]);
@@ -53,7 +52,7 @@ function BigList({ fetchId, title, setMovieId, setLoading, type, notGradient }) 
 				<div onWheel={(e) => scrollHorizontally(e)} class="list__items list__items-big">
 					{ thisMovies?.slice(0, 10).map((movie) =>
 						(<div class="list__item" key={movie.id} onClick={() => handleClick(movie)}>
-							<img loading="lazy" onError={(e) => {e.target.onerror = null; e.target.src = defaultImage }} src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} />
+							<img loading="lazy" onError={(e) => {e.target.onerror = null; e.target.src = defaultImage }} src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} alt="Movie Poster"/>
 							<div className="list__itemInfo">
 								<h5 className="list__itemTitle">{movie.title || movie.original_title || movie.name || movie.original_name}<span className="list__itemYear">({getReleaseYear(movie.release_date || movie.first_air_date)})</span></h5>
 								<TextTruncate

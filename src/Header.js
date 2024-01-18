@@ -1,20 +1,19 @@
 import React, { useState, useRef } from 'react';
-import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
-import ChevronLeftRoundedIcon from "@material-ui/icons/ChevronLeftRounded";
+import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import "./Header.css";
 import axios from './axios';
-import requests, { imageBase, fetchMovie, fetchTV, fetchSearchString, setLoading } from './api';
+import  {fetchSearchString } from './api';
 import NFLogo from './assets/logo1.png';
 import UserIcon from './assets/nfuser.jpg';
 import {auth} from './firebase';
-import {useHistory, useLocation, NavLink} from 'react-router-dom';
+import {useNavigate, useLocation, NavLink} from 'react-router-dom';
 
 function Header({ setSearchResult, setLoading, popularVisible, resetApp }) {
   const [input, setInput] = useState('');
   const inputEl = useRef(null);
-  const searchEl = useRef(null);
   const [searchOpen, setSearchOpen] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
   const location = useLocation();
 
   const errorOccurred = (error) => {
@@ -25,11 +24,11 @@ function Header({ setSearchResult, setLoading, popularVisible, resetApp }) {
   
   const goBack = () => {
   	resetApp();
-  	history.push('/');
+  	navigate('/');
   }
 
   const searchQuery = (query) => {
-  	history.push('/');
+  	navigate('/');
     axios.get(fetchSearchString(query)).then((response) => {
       if (response.data.total_results < 1) {
         alert("No Results Found");
@@ -52,9 +51,9 @@ function Header({ setSearchResult, setLoading, popularVisible, resetApp }) {
 
   const handleUser = () => {
   	if (auth.currentUser) {
-  		history.push('/profile');
+  		navigate('/profile');
   	} else {
-  		history.push('/login');
+  		navigate('/login');
   	}
   }
   
@@ -81,10 +80,10 @@ function Header({ setSearchResult, setLoading, popularVisible, resetApp }) {
 				<li><a href="#">Featured</a></li>
 			</ul>
 			<div className="app__user" onClick={handleUser}>
-				<img src={auth.currentUser?.photoURL || UserIcon} />
+				<img src={auth.currentUser?.photoURL || UserIcon} alter="User Icon"/>
 				<span>{auth.currentUser?.displayName || auth.currentUser?.email || 'Login'}</span>
 			</div>
-			<img className="app__title" src={NFLogo} onClick={()=>history.push('/')}/>
+			<img className="app__title" src={NFLogo} onClick={()=>navigate('/')} alt="Logo"/>
 		</div>
   )
 }

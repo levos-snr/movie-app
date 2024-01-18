@@ -5,9 +5,9 @@ import tmdbIcon from "./assets/tmdb.svg";
 function Footer() {
   return (
     <div className="footer">
-			<img src={tmdbIcon} />
+			<img src={tmdbIcon} alt="TMDB ICON"/>
 			<p>
-				<a href="https://github.com/lewis-0dero-okongo">@lewis-github </a> | <a href="https://github.com/lewis-0dero-okongo/movie-app"> GitHub</a>
+				<a href="https://github.com/levos-snr">@Levos </a> | <a href="https://github.com/levos-snr/movie-app"> GitHub</a>
 			</p>
 		</div>
   )

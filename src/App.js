@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import FeaturedMovie from "./FeaturedMovie";
-import { Route, Redirect, useHistory } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";  
 import List from "./List";
 import BigList from "./BigList";
 import Results from "./Results";
@@ -13,7 +13,8 @@ import Profile from './Profile';
 import "./App.css";
 import axios from './axios';
 import {auth} from './firebase';
-import requests, { imageLargeBase, imageBase, fetchMovie, fetchTV, fetchSearchString, fetchRecommendedMovies, fetchRecommendedTV, fetchSimilarMovies, fetchSimilarTV } from './api';
+import requests, { imageLargeBase, fetchMovie, fetchTV, fetchRecommendedMovies, fetchRecommendedTV, fetchSimilarMovies, fetchSimilarTV } from './api';
+
 
 const listOneInit = {
 	title: "Latest & Trending Movies",
@@ -175,38 +176,36 @@ function App() {
   }
 
   return (
-    <div className="app">
-		{loading && <Loading />}
-		
-		<Header setLoading={setLoading} resetApp={resetApp} popularVisible={popularVisible} setSearchResult={setSearchResult} />
+	<div className="app">
+	{loading && <Loading />}
 
-		<Route path='/about'>
-			<About/>
-		</Route>
-		
-		<Route path='/login'>
-			{user ? <Redirect to="/profile" /> : <Login/>}
-		</Route>
-		
-		<Route path='/profile'>
-			{user ? <Profile user={user}/> : <Redirect to="/login" />}
-		</Route>
-		
-		<Route exact path='/'>
-			<>
+	<Header setLoading={setLoading} resetApp={resetApp} popularVisible={popularVisible} setSearchResult={setSearchResult} />
+
+	<Routes>
+	  <Route path='/about' element={<About />} />
+	  
+	  <Route path='/login' element={user ? <Navigate to="/profile" /> : <Login />} />
+	  
+	  <Route path='/profile' element={user ? <Profile user={user} /> : <Navigate to="/login" />} />
+	  
+	  <Route
+		path='/'
+		element={
+		  <>
 			{showResults ?
-				<Results setLoading={setLoading} searchResult={searchResult} setMovieId={setMovieId} /> : 
-				<FeaturedMovie featuredCertification={featuredCertification} overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} />}
+			  <Results setLoading={setLoading} searchResult={searchResult} setMovieId={setMovieId} /> :
+			  <FeaturedMovie featuredCertification={featuredCertification} overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} />}
 
 			{popularVisible && <List setLoading={setLoading} setMovieId={setMovieId} />}
-				<BigList notGradient={popularVisible} setLoading={setLoading} setMovieId={setMovieId} type={listOne.type} title={listOne.title} fetchId={listOne.fetchId}/>
-				<BigList notGradient={true} setLoading={setLoading} setMovieId={setMovieId} type={listTwo.type} title={listTwo.title} fetchId={listTwo.fetchId}/>
-			</>
-		</Route>
-		
-		<Footer />
+			<BigList notGradient={popularVisible} setLoading={setLoading} setMovieId={setMovieId} type={listOne.type} title={listOne.title} fetchId={listOne.fetchId} />
+			<BigList notGradient={true} setLoading={setLoading} setMovieId={setMovieId} type={listTwo.type} title={listTwo.title} fetchId={listTwo.fetchId} />
+		  </>
+		}
+	  />
+	</Routes>
 
-    </div>
+	<Footer />
+  </div>
   );
 }
 

@@ -1,24 +1,28 @@
-import firebase from "firebase";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDCrp5f6boL6Su7wXs4m7r8mfQBk_uKf0Q",
-  authDomain: "movie-app-ec6dd.firebaseapp.com",
-  projectId: "movie-app-ec6dd",
-  storageBucket: "movie-app-ec6dd.appspot.com",
-  messagingSenderId: "957983258010",
-  appId: "1:957983258010:web:d40fa6225afc2ef77f3623",
-  measurementId: "G-F2V6ST5X06"
+  apiKey: "AIzaSyBaXpMsnI95NqN5Z4VG5dMkEafiJxnZ54g",
+  authDomain: "movie--webapp.firebaseapp.com",
+  databaseURL: "https://movie--webapp-default-rtdb.firebaseio.com",
+  projectId: "movie--webapp",
+  storageBucket: "movie--webapp.appspot.com",
+  messagingSenderId: "527511147143",
+  appId: "1:527511147143:web:aa1ba8dc702c902a151e22",
+  measurementId: "G-FT7N89RX8D"
 };
 
+//  initialize the firebase App
 const firebaseAdmin = firebase.initializeApp(firebaseConfig);
+
+
+
+//  db & auth
 const db = firebaseAdmin.firestore();
 const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
-const analytics = getAnalytics(firebaseAdmin)
 
 
 export { auth, db, provider };

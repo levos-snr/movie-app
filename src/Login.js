@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from "react";
 import "./Login.css";
 import {auth, provider} from './firebase';
-import {useHistory, useLocation} from 'react-router-dom';
+import { useLocation} from 'react-router-dom';
 
 function Login() {
 	
-	const history = useHistory();
 	const location = useLocation();
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
@@ -26,7 +25,7 @@ function Login() {
 		if (location.state && location.state.email) {
 			setEmail(location.state.email);
 		}
-	}, []);
+	}, [location.state]);
 	
 	useEffect(()=> {
 		if (error) {

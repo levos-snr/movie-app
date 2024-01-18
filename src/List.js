@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Button from '@material-ui/core/Button';
-import StarRoundedIcon from "@material-ui/icons/StarRounded";
-import Rating from "@material-ui/lab/Rating";
+import Button from '@mui/material/Button';
+import StarRoundedIcon from '@mui/icons-material/StarRounded';
+import Rating from '@mui/material/Rating';
 import TextTruncate from "react-text-truncate";
 import defaultImage from "./assets/default.jpg";
 import numeral from "numeral";
@@ -47,12 +47,12 @@ useEffect(() => {
   return (
     <div className="list">
 
-			<div class="list__trending">
+			<div className="list__trending">
 				<h4>Top Rated Movies</h4>
-				<div class="list__items">
+				<div className="list__items">
 					{ popularMovies?.slice(0, 12).map((movie) => 
-						(<div class="list__item" onClick={() => handleClick(movie)}>
-							<img loading="lazy" onError={(e) => {e.target.onerror = null; e.target.src = defaultImage }} src={`${imageBase}${movie.backdrop_path || movie.poster_path}`} />
+						(<div className="list__item" onClick={() => handleClick(movie)}>
+							<img loading="lazy" onError={(e) => {e.target.onerror = null; e.target.src = defaultImage }} src={`${imageBase}${movie.backdrop_path || movie.poster_path}`} alt="Movie Poster" />
 							<div className="list__itemInfo">
 								<h5 className="list__itemTitle">{movie.title || movie.original_title}<span className="list__itemYear">({getReleaseYear(movie.release_date || movie.first_air_date)})</span></h5>
 								<TextTruncate
@@ -72,9 +72,9 @@ useEffect(() => {
 				</div>
 			</div>
 
-			<div class="list__genreList">
+			<div className="list__genreList">
 				<h4>Movies by Genre</h4>
-				<div class="list__genres">
+				<div className="list__genres">
 					{ genres?.map((genre) =>
 						genre.id !== 10770 && genre.id !== 99 && genre.id !== 37 && genre.id !== 10752 && genre.id !== 9648 && (<Button className="app__button" onClick={() => console.log(genre.name, genre.id)} variant="contained" disableFocusRipple>{genre.name}</Button>)
 					)}

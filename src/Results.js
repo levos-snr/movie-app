@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import Button from '@material-ui/core/Button';
-import StarRoundedIcon from "@material-ui/icons/StarRounded";
-import Rating from "@material-ui/lab/Rating";
+import React from "react";
+import StarRoundedIcon from '@mui/icons-material/StarRounded';
+import Rating from '@mui/material/Rating';
 import TextTruncate from "react-text-truncate";
 import defaultImage from "./assets/default.jpg";
 import "./Results.css";
@@ -22,10 +21,10 @@ function Results({ searchResult, setMovieId, setLoading }) {
   return (
     <div className="results">
 			<h4>Search Results</h4>
-			<div class="results__list">
+			<div className="results__list">
 				{ searchResult?.map((movie) => movie.media_type !== 'person' &&
-					(<div class="list__item" onClick={() => handleClick(movie)}>
-						<img onError={(e) => {e.target.onerror = null; e.target.src = defaultImage }} src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} />
+					(<div className="list__item" onClick={() => handleClick(movie)}>
+						<img onError={(e) => {e.target.onerror = null; e.target.src = defaultImage }} src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} alt="movie" />
 						<h5 className="list__itemType">{movie.media_type}</h5>
 						<div className="list__itemInfo">
 							<h5 className="list__itemTitle">{movie.title || movie.original_title || movie.name || movie.original_name}<span className="list__itemYear">({getReleaseYear(movie.release_date || movie.first_air_date)})</span></h5>

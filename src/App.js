@@ -169,7 +169,7 @@ function App() {
     }
   }, [searchResult]);
 
-  var overlayStyle = {
+  let overlayStyle = {
     backgroundImage: `url(${imageLargeBase}${featuredMovie.backdrop_path || featuredMovie.poster_path})`,
     backgroundSize: 'cover',
     backgroundPosition: 'top right',

@@ -1,5 +1,7 @@
-const API_KEY = "5d3140c63f525198208a35c56481827c";
+const API_KEY = "0120b248757729bc03cca2b0f9a8a3c9";
 
+
+const imageOrigalBase = "https://image.tmdb.org/t/p/original"
 const imageBase = "https://image.tmdb.org/t/p/w500";
 const imageLargeBase = "https://image.tmdb.org/t/p/w1280";
 
@@ -34,5 +36,5 @@ const fetchSimilarTV = (id) => {
   return `/tv/${id}/similar?api_key=${API_KEY}&language=en-US&page=1`
 }
 
-export { imageLargeBase, imageBase, fetchMovie, fetchTV, fetchSearchString, fetchRecommendedMovies, fetchRecommendedTV, fetchSimilarMovies, fetchSimilarTV };
+export { imageLargeBase, imageBase, fetchMovie, fetchTV, fetchSearchString, fetchRecommendedMovies, fetchRecommendedTV, fetchSimilarMovies, fetchSimilarTV, imageOrigalBase};
 export default requests;

@@ -47,11 +47,11 @@ function BigList({ fetchId, title, setMovieId, setLoading, type, notGradient }) 
   return (
     <div className={`list biglist ${!notGradient ? "bigList_gradient" : ""}`}>
 
-			<div class="list__trending list__big">
+			<div className="list__trending list__big">
 				<h4>{title}</h4>
-				<div onWheel={(e) => scrollHorizontally(e)} class="list__items list__items-big">
+				<div onWheel={(e) => scrollHorizontally(e)} className="list__items list__items-big">
 					{ thisMovies?.slice(0, 10).map((movie) =>
-						(<div class="list__item" key={movie.id} onClick={() => handleClick(movie)}>
+						(<div className="list__item" key={movie.id} onClick={() => handleClick(movie)}>
 							<img loading="lazy" onError={(e) => {e.target.onerror = null; e.target.src = defaultImage }} src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} alt="Movie Poster"/>
 							<div className="list__itemInfo">
 								<h5 className="list__itemTitle">{movie.title || movie.original_title || movie.name || movie.original_name}<span className="list__itemYear">({getReleaseYear(movie.release_date || movie.first_air_date)})</span></h5>

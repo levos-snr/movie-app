@@ -21,9 +21,9 @@ function Results({ searchResult, setMovieId, setLoading }) {
   return (
     <div className="results">
 			<h4>Search Results</h4>
-			<div class="results__list">
+			<div className="results__list">
 				{ searchResult?.map((movie) => movie.media_type !== 'person' &&
-					(<div class="list__item" onClick={() => handleClick(movie)}>
+					(<div className="list__item" onClick={() => handleClick(movie)}>
 						<img onError={(e) => {e.target.onerror = null; e.target.src = defaultImage }} src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} alt="movie" />
 						<h5 className="list__itemType">{movie.media_type}</h5>
 						<div className="list__itemInfo">

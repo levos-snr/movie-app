@@ -12,22 +12,22 @@ ________________________________________________________________________________
 
 > Netflix redesign with a modern UI, functionality including User Authentication (Firebase).
 
-## ✨ [Demo](https://movie-app-project1.web.app/) ✨
+#### ✨ [Demo](https://movie-app-project1.web.app/) ✨
 
-# clone the app
+### clone the app
 
 > git clone <linK>
 
 
-# installing dependencies
+### installing dependencies
 
 - pnpm install
 
 
-#  log in to TMD or movie DB to get api
-#  log in to firebase to get hosting and your credential
+###  log in to TMD or movie DB to get api
+###  log in to firebase to get hosting and your credential
 
-# deploy using firebase
+### deploy using firebase
 
 - firebase login
 - firebase init
@@ -40,14 +40,14 @@ ________________________________________________________________________________
 > ![github](https://user-images.githubusercontent.com/75755882/116940379-8e647a00-ac76-11eb-9acc-8a9061eb3fe1.png)
 
 
-## Author
+### Author
 
 👤 **Levos Snr**
 
 *  Website: https://movie-app-project1.web.app/
 *  Github: [@Levos-snr](https://github.com/levos-snr/movie-app)
 
-## Show your support
+### Show your support
 
 Give a ⭐️ if this project helped you!
 

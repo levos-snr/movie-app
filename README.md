@@ -21,7 +21,7 @@ ________________________________________________________________________________
 
 ### installing dependencies
 
-- pnpm install
+> pnpm install
 
 
 ###  log in to TMD or movie DB to get api

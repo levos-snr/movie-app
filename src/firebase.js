@@ -1,28 +1,25 @@
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
 
+/// Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBaXpMsnI95NqN5Z4VG5dMkEafiJxnZ54g",
-  authDomain: "movie--webapp.firebaseapp.com",
-  databaseURL: "https://movie--webapp-default-rtdb.firebaseio.com",
-  projectId: "movie--webapp",
-  storageBucket: "movie--webapp.appspot.com",
-  messagingSenderId: "527511147143",
-  appId: "1:527511147143:web:aa1ba8dc702c902a151e22",
-  measurementId: "G-FT7N89RX8D"
+  apiKey: "AIzaSyCF9JShmZyST1DGa3uDE5ibqnkk4tl0tCw",
+  authDomain: "movie-app-2-488fc.firebaseapp.com",
+  projectId: "movie-app-2-488fc",
+  storageBucket: "movie-app-2-488fc.appspot.com",
+  messagingSenderId: "915283911698",
+  appId: "1:915283911698:web:2e4da8ec94013a714ae4cb",
+  measurementId: "G-RE4YVHDM53",
 };
 
 //  initialize the firebase App
 const firebaseAdmin = firebase.initializeApp(firebaseConfig);
 
-
-
 //  db & auth
 const db = firebaseAdmin.firestore();
 const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
-
 
 export { auth, db, provider };

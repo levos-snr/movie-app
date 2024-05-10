@@ -1,0 +1,131 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Movie {
+  id                  Int                @id @default(autoincrement())
+  title               String
+  originalTitle       String?
+  overview            String
+  releaseDate         DateTime
+  genres              Genre[]
+  voteAverage         Float
+  voteCount           Int
+  posterPath          String
+  backdropPath        String
+  runtime             Int
+  trailerKey          String?
+  reviews             Review[]
+  directors           Director[]         @relation(map: "movieDirectors")
+  favorites           User[]             @relation("UserFavorites", map: "userFavorites")
+  watchlist           User[]             @relation("UserWatchlist", map: "userWatchlist")
+  actors              Actor[]            @relation(map: "movieActors")
+  productionCompany   ProductionCompany? @relation(fields: [productionCompanyId], references: [id], map: "movieProductionCompany")
+  productionCompanyId Int?
+  country             Country?           @relation(fields: [countryId], references: [id], map: "movieCountry")
+  countryId           Int?
+  language            Language?          @relation(fields: [languageId], references: [id], map: "movieLanguage")
+  languageId          Int?
+  Favorite            Favorite[]
+  Watchlist           Watchlist[]
+}
+
+model Genre {
+  id     Int     @id @default(autoincrement())
+  name   String
+  movies Movie[]
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  content   String
+  rating    Float
+  createdAt DateTime @default(now())
+  movie     Movie    @relation(fields: [movieId], references: [id])
+  movieId   Int
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
+}
+
+model User {
+  id        Int         @id @default(autoincrement())
+  username  String      @unique
+  email     String      @unique
+  password  String
+  avatar    String?
+  favorites Movie[]     @relation("UserFavorites", map: "userFavorites")
+  watchlist Movie[]     @relation("UserWatchlist", map: "userWatchlist")
+  reviews   Review[]
+  Favorite  Favorite[]
+  Watchlist Watchlist[]
+  Profile   Profile?
+  Address   Address[]
+}
+
+model Profile {
+  id     Int     @id @default(autoincrement())
+  bio    String?
+  user   User    @relation(fields: [userId], references: [id])
+  userId Int     @unique
+}
+
+model Address {
+  id     Int    @id @default(autoincrement())
+  street String
+  city   String
+  zip    String
+  user   User   @relation(fields: [userId], references: [id])
+  userId Int
+}
+
+model Favorite {
+  id      Int   @id @default(autoincrement())
+  userId  Int
+  movieId Int
+  user    User  @relation(fields: [userId], references: [id])
+  movie   Movie @relation(fields: [movieId], references: [id])
+}
+
+model Director {
+  id     Int     @id @default(autoincrement())
+  name   String
+  movies Movie[] @relation(map: "movieDirectors")
+}
+
+model Actor {
+  id     Int     @id @default(autoincrement())
+  name   String
+  movies Movie[] @relation(map: "movieActors")
+}
+
+model ProductionCompany {
+  id            Int     @id @default(autoincrement())
+  name          String
+  originCountry String
+  movies        Movie[] @relation(map: "movieProductionCompany")
+}
+
+model Country {
+  id     Int     @id @default(autoincrement())
+  name   String
+  movies Movie[] @relation(map: "movieCountry")
+}
+
+model Language {
+  id     Int     @id @default(autoincrement())
+  name   String
+  movies Movie[] @relation(map: "movieLanguage")
+}
+
+model Watchlist {
+  id      Int   @id @default(autoincrement())
+  userId  Int
+  movieId Int
+  user    User  @relation(fields: [userId], references: [id])
+  movie   Movie @relation(fields: [movieId], references: [id])
+}
